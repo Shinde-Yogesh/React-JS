@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { TodoProvider } from './contexts'
 import './App.css'
+import { useEffect } from 'react'
 
 function App() {
   const [todos, setTodos] = useState([])
@@ -21,6 +22,24 @@ function App() {
   const toggleComplete = (id) => {
     setTodos((prev) => prev.map((prevTodo) => prevTodo === id ? { ...prevTodo, completed: !prevTodo.completed } : prevTodo))
   }
+
+  //for inserting the value 
+
+  //local storage store the value in the key value pair
+  //getItem return the output in the string formate
+  useEffect(() => {
+    const todos = JSON.parse(localStorage.getItem("todos"))
+    if (todos && todos.length > 0) {
+      setTodos(todos)
+    }
+  }, [])
+
+
+  //set the value 
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }, [todos])
 
 
   return (
