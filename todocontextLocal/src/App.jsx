@@ -3,6 +3,9 @@ import { TodoProvider } from './contexts'
 import './App.css'
 import { useEffect } from 'react'
 
+import {TodoForm} from './components/'
+import {TodoItem} from './components/'
+
 function App() {
   const [todos, setTodos] = useState([])
 
@@ -20,7 +23,7 @@ function App() {
   }
 
   const toggleComplete = (id) => {
-    setTodos((prev) => prev.map((prevTodo) => prevTodo === id ? { ...prevTodo, completed: !prevTodo.completed } : prevTodo))
+    setTodos((prev) => prev.map((prevTodo) => prevTodo.id === id ? { ...prevTodo, completed: !prevTodo.completed } : prevTodo))
   }
 
   //for inserting the value 
@@ -49,9 +52,25 @@ function App() {
           <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
           <div className="mb-4">
             {/* Todo form goes here */}
+            <TodoForm />
           </div>
+
+
           <div className="flex flex-wrap gap-y-3">
             {/*Loop and Add TodoItem here */}
+
+
+            {todos.map((todo) => (
+              <div key={todo.id}
+              className='w-full'
+              >
+              <TodoItem todo={todo} />
+
+
+
+              </div>
+            ))}
+
           </div>
         </div>
       </div>
