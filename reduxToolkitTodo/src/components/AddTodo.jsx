@@ -7,10 +7,8 @@ function AddTodo() {
 const [input, setInput] = React.useState('')
 
 const dispatch = useDispatch()
-
-
+    
 //use of useDispatch
-
 const addTodoHandler = (e) => {
     e.preventDefault()
     dispatch(addTodo(input))
@@ -35,5 +33,4 @@ const addTodoHandler = (e) => {
     </form>
     )
 }
-
 export default AddTodo
