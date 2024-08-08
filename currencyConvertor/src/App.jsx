@@ -92,9 +92,13 @@ function App() {
     </div>
 =======
         <h1 className='text-center'> Hello</h1>
+<<<<<<< HEAD
     </div>
     
 >>>>>>> f5883512544d4b7a435ef5086867a0f68b66cb9f
+=======
+    </div> 
+>>>>>>> 6fcb680eb6af0ab40a00dc5b667509fb6125c6bd
 );
 }
 
