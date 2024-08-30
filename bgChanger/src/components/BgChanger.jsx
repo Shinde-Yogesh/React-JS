@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function App() {
+function BgChanger() {
   const [color, setColor] = useState("olive");
 
   return (
@@ -81,4 +81,4 @@ function App() {
   );
 }
 
-export default App;
+export default BgChanger;
